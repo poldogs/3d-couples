@@ -1,0 +1,36 @@
+@import "../../app.scss";
+
+.cursor {
+  position: fixed;
+  width: 0;
+  height: 0;
+  z-index: 9999;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 12px;
+    height: 20px;
+    border-radius: 12px 12px 0 0;
+    background: rgb(255, 87, 87);
+    z-index: 999;
+  }
+
+  &::before {
+    left: 8px;
+    transform: rotate(45deg);
+    transform-origin: 0 100%;
+  }
+
+  &::after {
+    left: 12px;
+    transform: rotate(-45deg);
+    transform-origin: 100% 100%;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
